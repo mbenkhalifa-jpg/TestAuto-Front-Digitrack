@@ -12,11 +12,11 @@ exports.CreerTransporteurModalePage =  class CreerTransporteurModalePage {
         this.createEntrepriseButton = page.locator('a').filter({ hasText: 'Créer une entreprise' })
         this.validateButton = page.locator('#editCreateTransporterModal').getByText('VALIDER')
         this.raisonSocialeText = page.locator('#label').nth(2);
+        
     }
 
 
 
-  
     async writeNom (name){
         await this.nomZone.fill(name);
     }

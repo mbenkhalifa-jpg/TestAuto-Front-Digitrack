@@ -15,6 +15,8 @@ exports.gestionPassagesPage =  class gestionPassagesPage {
         this.moaTab = page.getByText('En attente moa', { exact: false })
         this.cellPassage =  page.locator('td:nth-child(5)').first();
         this.adminPlq = page.locator('td:nth-child(2)').first();
+        this.passagePlate = page.locator('td:nth-child(6)').first();
+        this.passageCreationDate = page.locator('td:nth-child(4)').first();
 
     }
 

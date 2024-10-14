@@ -97,6 +97,10 @@ exports.MenuPage =  class MenuPage {
         await this.confButton.click();
         await this.filButton.click();
     }
+    
+    async gotoLoginPage(){
+        await this.page.goto('https://ecs-staging.altaroad.fr/');
+    }
 }
 
 

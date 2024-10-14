@@ -138,6 +138,10 @@ exports.creerMatiereModalPage =  class CreerMatiereModalPage {
         //this.familleSelect(famille);
         //this.codeMateriauSelect(codeMateriau);
     }
+    async validate()
+    {
+        this.validateButton.click();
+    }
 
 
     
