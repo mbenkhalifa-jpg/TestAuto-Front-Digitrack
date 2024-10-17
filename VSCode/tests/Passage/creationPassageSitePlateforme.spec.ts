@@ -12,8 +12,6 @@ test('Test création de passage sur un site platform', async ({ page }) => {
   const Menu = new MenuPage(page)
   const CreationPassage = new CreationPassagesPage(page)
   const GestionPassages = new gestionPassagesPage(page)
-  gestionPassagesPage
-
 
   await Login.gotoLoginPage();
   await Login.login('marwa.benkhalifa-ext@altaroad.com','Marmarou1234*') // Effectuer la connexion
@@ -21,12 +19,16 @@ test('Test création de passage sur un site platform', async ({ page }) => {
   await Menu.gotoCreaPage();
   await CreationPassage.ClickCreationPassage();
   await CreationPassage.SelectPlate('AA123AB');
-  await CreationPassage.selectOptions('22');
+  await CreationPassage.selectPassageType();
+  await CreationPassage.selectMaterial();
+  await CreationPassage.selectConstructionSite();
+  await CreationPassage.selectMass('22');
+  await CreationPassage.validateCreation;
   await Menu.gotoGestPage();
-  //await expect(GestionPassages.passagePlate).toHaveValue("AA123AB");
-  //await expect(GestionPassages.passagePlate).toHaveValue("13/10/2024");
+  //await GestionPassages.checkTextInColumn('AA123AB');
+  await expect(GestionPassages.passagePlate).toContainText("AA123AB");
+  //await expect(GestionPassages.passageCreationDate).toHaveValue("15/10/2024");
 
-  
   
 
 }

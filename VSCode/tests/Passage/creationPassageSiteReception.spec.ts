@@ -1,8 +1,9 @@
-import { test } from '@playwright/test';
+import { test,expect } from '@playwright/test';
 import { LoginPage } from '../../pages/login';
 import { MenuPage } from '../../pages/menu';
 import { HomePage } from '../../pages/HomePage';
 import { CreationPassagesPage } from '../../pages/CreationPassages';
+import {gestionPassagesPage } from '../../pages/gestionPassages';
 
 test('Test création de passage sur un site reception', async ({ page }) => {
   // Initialisation des pages
@@ -10,6 +11,7 @@ test('Test création de passage sur un site reception', async ({ page }) => {
   const Login =  new LoginPage(page)
   const Menu = new MenuPage(page)
   const CreationPassage = new CreationPassagesPage(page)
+  const GestionPassages = new gestionPassagesPage(page)
 
 
   await Login.gotoLoginPage();
@@ -18,8 +20,14 @@ test('Test création de passage sur un site reception', async ({ page }) => {
   await Menu.gotoCreaPage();
   await CreationPassage.ClickCreationPassage();
   await CreationPassage.SelectPlate('AA123AB');
-  await CreationPassage.selectOptions();
-
+  await CreationPassage.selectPassageType();
+  await CreationPassage.selectMaterial();
+  await CreationPassage.selectConstructionSite();
+  await CreationPassage.selectMass('22');
+  await CreationPassage.validateCreation;
+  await Menu.gotoGestPage();
+  await expect(GestionPassages.passagePlate).toContainText("AA123AB");
+  //await expect(GestionPassages.passageCreationDate).toHaveValue("15/10/2024");
 }
 );
 

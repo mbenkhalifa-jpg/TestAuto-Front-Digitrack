@@ -15,7 +15,7 @@ exports.gestionPassagesPage =  class gestionPassagesPage {
         this.moaTab = page.getByText('En attente moa', { exact: false })
         this.cellPassage =  page.locator('td:nth-child(5)').first();
         this.adminPlq = page.locator('td:nth-child(2)').first();
-        this.passagePlate = page.locator('td:nth-child(6)').first();
+        this.passagePlate = page.locator('td:nth-child(5)').first();
         this.passageCreationDate = page.locator('td:nth-child(4)').first();
 
     }
@@ -34,6 +34,15 @@ exports.gestionPassagesPage =  class gestionPassagesPage {
 
     async exportCreate(){
         await this.exportButton.click();
+    }
+
+    async checkTextInColumn(expectedText) {
+        // Récupère le texte de la cellule passagePlate
+        const cellText = await this.passagePlate.innerText(); // Utilisation de `this.passagePlate` pour référencer la cellule
+
+        // Vérifie si le texte attendu est présent dans le texte de la cellule
+        expect(cellText).toContain(expectedText); // Utilisez toBe si vous voulez une correspondance exacte
+        await this.cellText.expect
     }
 
 
