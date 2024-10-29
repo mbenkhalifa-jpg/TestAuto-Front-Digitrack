@@ -14,6 +14,7 @@ exports.MenuPage =  class MenuPage {
         this.confButton = page.getByRole('button', { name: 'CONFIGURATION' })
         this.matButton = page.getByRole('button', { name: 'MATÉRIAUX' })
         this.provButton = page.getByRole('button', { name: 'PROVENANCES' })
+        this.destButton = page.getByRole('button', { name: 'DESTINATIONS' })
         this.truckButton = page.getByRole('button', { name: 'CAMIONS' })
         this.transButton = page.getByRole('button', { name: 'TRANSPORTEURS' })
         this.entButton = page.getByRole('button', { name: 'ENTREPRISES' })
@@ -69,6 +70,14 @@ exports.MenuPage =  class MenuPage {
         await this.confButton.click();
         await this.provButton.click();
     }
+
+    async gotoDestPage()
+    {
+        await this.menuButton.click()
+        await this.confButton.click();
+        await this.destButton.click();
+    }
+    
 
     async gotoTruckPage()
     {

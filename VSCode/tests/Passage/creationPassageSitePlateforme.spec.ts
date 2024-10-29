@@ -29,7 +29,7 @@ test('Test création de passage sur un site platform', async ({ page }) => {
   await expect(GestionPassages.passagePlate).toContainText("AA123AB");
   //await expect(GestionPassages.passageCreationDate).toHaveValue("15/10/2024");
 
-  
-
 }
+
+
 );
