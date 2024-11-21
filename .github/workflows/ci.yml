@@ -27,17 +27,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Étape 4 : Lancer les tests Playwright
+      # Étape 4 : Installer les navigateurs Playwright
+      - name: Install Playwright browsers
+        run: npx playwright install
+
+      # Étape 5 : Exécuter les tests
       - name: Run Playwright tests
         run: npx playwright test
 
-      # Étape 5 : Générer les rapports Allure (si configuré)
+      # Étape 6 : Générer les rapports Allure (si configuré)
       - name: Generate Allure Report
         run: |
           npx playwright show-report
         if: always()
 
-      # Étape 6 : Publier les rapports (optionnel)
+      # Étape 7 : Publier les rapports (optionnel)
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v3
         with:
