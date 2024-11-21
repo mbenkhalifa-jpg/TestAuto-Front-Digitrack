@@ -7,7 +7,9 @@
     "test:e2e:headed": "npx playwright test --headed",
     "test:e2e:debug": "npx playwright test --debug",
     "test:e2e:retry": "npx playwright test --retry-failed",
-    "send:report": "node sendReport.js"
+    "send:report": "node sendReport.js",
+    "generate-report": "allure generate allure-results --clean",
+    "open-report":"allure open allure-report"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +19,7 @@
     "@playwright/test": "^1.48.0",
     "@types/node": "^20.14.2",
     "allure-commandline": "^2.30.0",
-    "allure-playwright": "3.0.0"
+    "allure-playwright": "^3.0.0"
   },
   "dependencies": {
     "nodemailer": "^6.9.16"
