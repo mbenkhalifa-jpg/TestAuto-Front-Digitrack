@@ -33,7 +33,7 @@ jobs:
 
       # Étape 5 : Exécuter les tests
       - name: Run Playwright tests
-        run: npx playwright test
+        run: xvfb-run npx playwright test --max-failures=1
 
       # Étape 6 : Générer les rapports Allure (si configuré)
       - name: Generate Allure Report
