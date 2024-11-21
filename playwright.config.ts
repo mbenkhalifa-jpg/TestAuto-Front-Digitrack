@@ -29,7 +29,7 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
     locale : 'fr-FR',
  // browserName: 'firefox',
-    headless: false, // Affiche le navigateur
+    headless: true, // Affiche le navigateur
     //screenshot: 'only-on-failure',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
