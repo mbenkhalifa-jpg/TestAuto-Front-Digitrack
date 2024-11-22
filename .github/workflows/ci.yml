@@ -35,39 +35,24 @@ jobs:
       - name: Run Playwright tests
         run: xvfb-run npx playwright test  #--max-failures=1
 
-      # # Étape 6 : Générer les rapports Allure (si configuré)
-      # - name: Generate Allure Report
-      #   run: |
-      #     npx playwright show-report
-      #   if: always()
-
-      # # Étape 7 : Publier les rapports (optionnel)
-      # - name: Upload Playwright Report
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: playwright-report
-      #     path: playwright-report/
-
-    
-      # Étape 6 : Installer Allure
       - name: Install Allure
         run: npm install -g allure-commandline
-
-      # Étape 7 : Générer le rapport Allure
+        if: always()
+      
       - name: Generate Allure Report
         run: allure generate allure-results --clean
-
-      # Étape 8 : Télécharger le rapport Allure comme artefact
+        if: always()
+      
       - name: Upload Allure Report
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
           path: allure-report
-
+        if: always()
+      
       - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report    
-
-          
+          publish_dir: ./allure-report
+        if: always()
