@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  //fullyParallel: true,
+  fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   //forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -35,7 +35,7 @@ export default defineConfig({
     video: 'retain-on-failure', // Conserve les vidéos pour les tests échoués
     locale : 'fr-FR',
  // browserName: 'firefox',
-    headless: true, // Affiche le navigateur
+    headless: false, // Affiche le navigateur
     //screenshot: 'only-on-failure',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
