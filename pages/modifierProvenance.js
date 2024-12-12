@@ -4,7 +4,6 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
     {
         this.page = page
         this.creaProvenanceButton = page.getByRole('link', { name: 'picto CRÉER UNE PROVENANCE' });
-        this.ProvenanceButton = page.getByRole('cell', { name: 'réception' }).first();
         //this.creaPassButton = page.locator("//button[contains(text(), 'CRÉER UN PASSAGE')]");
         this.siteInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').first();
         this.IdentifierInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').nth(1);
@@ -40,13 +39,7 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
         await this.creaProvenanceButton.click();
            
     }  
-
-    async ClickOnProvenance (){
-
-      await this.ProvenanceButton.click();
-         
-  }
-     
+     a
     async InsertSite (Site){
         await this.siteInput.click();
         await this.siteInput.fill(Site);

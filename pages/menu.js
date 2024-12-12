@@ -4,7 +4,7 @@ exports.MenuPage =  class MenuPage {
     {
 
         this.page = page
-        this.menuButton = page.locator('span').filter({ hasText: 'Menu' }).first()
+        this.menuButton = page.locator('div').filter({ hasText: 'Menu site altaroad ' }).locator('svg').first()
         this.creaButton = page.getByRole('button', { name: 'CRÉATION DES PASSAGES' })
         this.gestButton = page.getByRole('button', { name: 'PASSAGES', exact: true })
         this.recotButton = page.getByRole('button', { name: 'DOCUMENTS IMPORTÉS' })
@@ -19,6 +19,7 @@ exports.MenuPage =  class MenuPage {
         this.transButton = page.getByRole('button', { name: 'TRANSPORTEURS' })
         this.entButton = page.getByRole('button', { name: 'ENTREPRISES' })
         this.filButton = page.getByRole('button', { name: 'FILIÈRES' })
+        this.enerButton = page.getByText('ÉNERGIES')
 
     }
     
@@ -105,6 +106,12 @@ exports.MenuPage =  class MenuPage {
         await this.menuButton.click()
         await this.confButton.click();
         await this.filButton.click();
+    }
+    async gotoEnerPage()
+    {
+        await this.menuButton.click()
+        await this.confButton.click();
+        await this.enerButton.click();
     }
     
     async gotoLoginPage(){

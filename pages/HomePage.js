@@ -4,7 +4,8 @@ exports.HomePage = class HomePage {
     this.dropDownList = page.getByLabel('treeselect trigger');
     this.plateformsCheckbox = page.locator('div').filter({ hasText: /^altaroad$/ }).locator('div').nth(1);
     this.plateformsInput = page.getByRole('searchbox');
-    this.crossButton = page.locator('#pn_id_10_list').getByRole('button').first();
+    this.crossButton = page.locator('#pn_id_9_list').getByRole('button').first();
+    
     
   }
 

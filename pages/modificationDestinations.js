@@ -1,20 +1,20 @@
-exports.GestionProvenancesPage = class GestionProvenancesPage {
+exports.ModificationDestinationsPage = class ModificationDestinatioModificationDestinationnsPage {
 
     constructor (page)
     {
         this.page = page
-        this.creaProvenanceButton = page.getByRole('link', { name: 'picto CRÉER UNE PROVENANCE' });
-        this.ProvenanceButton = page.getByRole('cell', { name: 'réception' }).first();
+        this.creaDestinationButton = page.getByRole('link', { name: 'picto CRÉER UNE DESTINATION' });
+        this.DestinationButton = page.getByText('TEST').first();
         //this.creaPassButton = page.locator("//button[contains(text(), 'CRÉER UN PASSAGE')]");
-        this.siteInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').first();
-        this.IdentifierInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').nth(1);
+        this.siteInput = page.locator('#editValidateDumpingForm div').filter({ hasText: 'Site * : Identifiant (CAP/DAP ou autre) * : Valorisation (%) : filière * : ISDI' }).getByRole('textbox').first();
+        this.IdentifierInput = page.locator('#editValidateDumpingForm div').filter({ hasText: 'Site * : Identifiant (CAP/DAP ou autre) * : Valorisation (%) : filière * : ISDI' }).getByRole('textbox').nth(1);
         //this.label = page.getByLabel('AA123AB');
-        this.ValuationInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('spinbutton');
+        this.ValuationInput = page.locator('#editValidateDumpingForm div').filter({ hasText: 'Site * : Identifiant (CAP/DAP ou autre) * : Valorisation (%) : filière * : ISDI' }).getByRole('spinbutton');
         this.adressInput = page.locator('#wording');
-        this.postalCodeInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(1);
-        this.cityInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(2);
+        this.postalCodeInput = page.locator('#editValidateDumpingForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(1);
+        this.cityInput = page.locator('#editValidateDumpingForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(2);
 
-        this.plannedTourInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('spinbutton');
+        this.plannedTourInput = page.locator('#editValidateDumpingForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('spinbutton');
         this.areaCheckbox= page.getByRole('radio').first();
         this.dropInput = page.locator('#pn_id_56').getByRole('combobox');
         this.dropDropDown = page.locator('#pn_id_22').getByLabel('dropdown trigger');
@@ -31,19 +31,19 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
         this.archivedListButton = page.getByText(/Archivés/);
         this.originAdded = page.locator('td').filter({ hasText: /^réception$/ });
         this.OpenOriginButton = page.getByRole('row', { name: 'réception huyg D1 : Dépôt sur' }).getByRole('paragraph');
-
-        
+     
     }
+    
 
-    async ClickCreationProvenance (){
+    async ClickCreationDestination (){
 
-        await this.creaProvenanceButton.click();
+        await this.creaDestinationButton.click();
            
     }  
 
-    async ClickOnProvenance (){
+    async ClickOnDestination (){
 
-      await this.ProvenanceButton.click();
+      await this.DestinationButton.click();
          
   }
      
@@ -183,15 +183,18 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
      }  else {
       console.log("L'élément n'est pas visible.");
      }
-   
   
 
-    }  
+    } 
     
-  
-      
+    async CreateCompany() {
 
- 
+      await this.archiveButton.click();
+      await this.archivedListButton.click();
+       
+
+    } 
+     
 }
 
     

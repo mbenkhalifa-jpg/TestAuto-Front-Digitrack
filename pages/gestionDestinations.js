@@ -10,7 +10,7 @@ exports.GestionDestinationsPage = class GestionDestinationsPage {
         this.adressInput = page.locator('#wording');
         this.postalCodeInput = page.locator('#createDumpingForm').getByRole('textbox').nth(3);
         this.cityInput = page.locator('#createDumpingForm').getByRole('textbox').nth(4);
-        this.entrepriseDropdown = page.locator('#pn_id_28').getByLabel('dropdown trigger');
+        this.entrepriseDropdown = page.locator('#pn_id_114').getByLabel('dropdown trigger');
         this.satm = page.getByText('SATM');
         this.validateButton = page.locator('#editCreateTransporterModal').getByText('VALIDER');
         

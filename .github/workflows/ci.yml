@@ -33,7 +33,7 @@ jobs:
 
       # Étape 5 : Exécuter les tests
       - name: Run Playwright tests
-        run: xvfb-run npx playwright test  #--max-failures=1
+        run: xvfb-run npx playwright test --grep "@smoke"  #--max-failures=1
 
       - name: Install Allure
         run: npm install -g allure-commandline

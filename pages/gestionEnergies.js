@@ -1,16 +1,15 @@
-exports.GestionProvenancesPage = class GestionProvenancesPage {
+exports.GestionEnergiesPage = class GestionEnergiesPage {
 
     constructor (page)
     {
         this.page = page
-        this.creaProvenanceButton = page.getByRole('link', { name: 'picto CRÉER UNE PROVENANCE' });
-        this.ProvenanceButton = page.getByRole('cell', { name: 'réception' }).first();
-        //this.creaPassButton = page.locator("//button[contains(text(), 'CRÉER UN PASSAGE')]");
-        this.siteInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').first();
-        this.IdentifierInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').nth(1);
-        //this.label = page.getByLabel('AA123AB');
-        this.ValuationInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('spinbutton');
-        this.adressInput = page.locator('#wording');
+        this.creaEnergieButton = page.getByRole('link', { name: 'picto AJOUTER UNE ÉNERGIE' });
+        this.NameInput = page.locator('#declarationForm').getByRole('textbox').first();
+        this.InitialValueInput = page.getByRole('spinbutton').first();
+        this.FinalValueInput = page.getByRole('spinbutton').nth(1);
+        this.TypeDropdown = page.locator('#pn_id_57').getByLabel('dropdown trigger');
+        //path indexé 
+        //this.TypeInput = page.getByRole('option', { name: optionName });
         this.postalCodeInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(1);
         this.cityInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(2);
 
@@ -35,9 +34,11 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
         
     }
 
-    async ClickCreationProvenance (){
+    
 
-        await this.creaProvenanceButton.click();
+    async ClickCreationEnergie (){
+
+        await this.creaEnergieButton.click();
            
     }  
 
@@ -47,9 +48,9 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
          
   }
      
-    async InsertSite (Site){
-        await this.siteInput.click();
-        await this.siteInput.fill(Site);
+    async InsertName (Name){
+        await this.NameInput.click();
+        await this.NameInput.fill(Name);
       
      
     }
@@ -59,22 +60,26 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
    
   }
 
-    async selectValuation(Valuation) {
+    async selectInitialValue(Value) {
 
-      await this.ValuationInput.click();
-      await this.ValuationInput.fill(Valuation);
-      
+      await this.InitialValueInput.click();
+      await this.InitialValueInput.fill(Value); 
 
     }
-    async selectAdress(Adress) {
+    async selectFinalValue(Value) {
 
-      await this.adressInput.click();
-      await this.adressInput.fill(Adress);
-      await this.adressInput.click();
-      
-      
+      await this.FinalValueInput.click();
+      await this.FinalValueInput.fill(Value); 
+
     }
     
+    async selectType(optionName) {
+
+      await this.TypeDropdown.click();
+      await this.TypeInput.fill(optionName);
+     
+    }
+
 
     async selectpostalCode(PC) {
 

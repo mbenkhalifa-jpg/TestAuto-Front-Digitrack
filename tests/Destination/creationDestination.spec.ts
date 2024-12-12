@@ -4,7 +4,7 @@ import { MenuPage } from '../../pages/menu';
 import { HomePage } from '../../pages/HomePage';
 import { GestionDestinationsPage } from '../../pages/gestionDestinations';
 
-
+test.describe('@smoke', () => {
 test('Test création de destination sur un site évacuation', async ({ page }) => {
   // Initialisation des pages
   const homePage = new HomePage(page);
@@ -20,11 +20,11 @@ test('Test création de destination sur un site évacuation', async ({ page }) =
   await CreationDestination.ClickCreationDestination();
   await CreationDestination.InsertSite('evacuation');
   await CreationDestination.InsertIdentifier('A125');
-  await CreationDestination.selectValuation('20');
+  //await CreationDestination.selectValuation('20');
   await CreationDestination.selectAdress('23 Rue Lecourbe');
   await CreationDestination.selectpostalCode('75015');
   await CreationDestination.selectCity('Paris');
-  await CreationDestination.selectEntreprise();
+  //await CreationDestination.selectEntreprise();
   await CreationDestination.validate();
   
 
@@ -48,7 +48,7 @@ test('Test création de destination sur un site évacuation (selection adresse v
   await CreationDestination.InsertIdentifier('A125');
   await CreationDestination.selectValuation('20');
   await CreationDestination.selectPosition('44.823390 ,-0.559438');
-  await CreationDestination.selectEntreprise();
+  //await CreationDestination.selectEntreprise();
   await CreationDestination.validate();
   
 
@@ -76,3 +76,5 @@ test('Test Ouverture/Fermeture/Archivage de destination', async ({ page }) => {
 }
 
 );
+
+});

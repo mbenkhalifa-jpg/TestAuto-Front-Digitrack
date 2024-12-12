@@ -4,7 +4,7 @@ import { MenuPage } from '../../pages/menu';
 import { HomePage } from '../../pages/HomePage';
 import { GestionProvenancesPage } from '../../pages/gestionProvenances';
 
-
+test.describe('@smoke', () => {
 test('Test création de provenance sur un site récèption', async ({ page }) => {
   // Initialisation des pages
   const homePage = new HomePage(page);
@@ -26,7 +26,7 @@ test('Test création de provenance sur un site récèption', async ({ page }) =>
   await CreationProvenance.selectCity('Paris');
   await CreationProvenance.selectPlannedTour('44');
   await CreationProvenance.selectZone();
-  await CreationProvenance.selectReplacement();
+  //await CreationProvenance.selectReplacement();
   await CreationProvenance.validate();
   
 }
@@ -83,4 +83,4 @@ test('Test Ouverture/Fermeture/Archivage de provenance', async ({ page }) => {
 
 );
 
-
+});

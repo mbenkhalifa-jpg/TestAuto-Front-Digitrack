@@ -1,20 +1,20 @@
-exports.GestionProvenancesPage = class GestionProvenancesPage {
+exports.ModificationProvenancesPage = class ModificationProvenancesPage {
 
     constructor (page)
     {
         this.page = page
         this.creaProvenanceButton = page.getByRole('link', { name: 'picto CRÉER UNE PROVENANCE' });
-        this.ProvenanceButton = page.getByRole('cell', { name: 'réception' }).first();
+        this.ProvenanceButton = page.getByRole('cell', { name: 'test' }).first();
         //this.creaPassButton = page.locator("//button[contains(text(), 'CRÉER UN PASSAGE')]");
-        this.siteInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').first();
-        this.IdentifierInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').nth(1);
+        this.siteInput = page.locator('#editValidateOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').first();
+        this.IdentifierInput = page.locator('#editValidateOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('textbox').nth(1);
         //this.label = page.getByLabel('AA123AB');
-        this.ValuationInput = page.locator('#createOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('spinbutton');
+        this.ValuationInput = page.locator('#editValidateOriginForm div').filter({ hasText: 'site * : identifiant * : Valorisation (%) : filière * : ISDI Code traitement' }).getByRole('spinbutton');
         this.adressInput = page.locator('#wording');
-        this.postalCodeInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(1);
-        this.cityInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(2);
+        this.postalCodeInput = page.locator('#editValidateOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(1);
+        this.cityInput = page.locator('#editValidateOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('textbox').nth(2);
 
-        this.plannedTourInput = page.locator('#createOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('spinbutton');
+        this.plannedTourInput = page.locator('#editValidateOriginForm div').filter({ hasText: 'Adresse : Code postal : Ville : - modifier la localisation Distance estimée (Km' }).getByRole('spinbutton');
         this.areaCheckbox= page.getByRole('radio').first();
         this.dropInput = page.locator('#pn_id_56').getByRole('combobox');
         this.dropDropDown = page.locator('#pn_id_22').getByLabel('dropdown trigger');
@@ -31,6 +31,10 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
         this.archivedListButton = page.getByText(/Archivés/);
         this.originAdded = page.locator('td').filter({ hasText: /^réception$/ });
         this.OpenOriginButton = page.getByRole('row', { name: 'réception huyg D1 : Dépôt sur' }).getByRole('paragraph');
+
+        
+        
+
 
         
     }
@@ -71,8 +75,7 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
       await this.adressInput.click();
       await this.adressInput.fill(Adress);
       await this.adressInput.click();
-      
-      
+       
     }
     
 
@@ -183,10 +186,18 @@ exports.GestionProvenancesPage = class GestionProvenancesPage {
      }  else {
       console.log("L'élément n'est pas visible.");
      }
-   
   
 
-    }  
+    } 
+    
+    async CreateCompany() {
+
+      await this.archiveButton.click();
+      await this.archivedListButton.click();
+       
+
+    } 
+     
     
   
       
