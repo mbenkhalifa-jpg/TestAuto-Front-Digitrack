@@ -5,7 +5,8 @@ import { HomePage } from '../../pages/HomePage';
 import { GestionDestinationsPage } from '../../pages/gestionDestinations';
 
 test.describe('@smoke', () => {
-test('Test création de destination sur un site évacuation', async ({ page }) => {
+
+  test('Test création de destination sur un site évacuation', async ({ page }) => {
   // Initialisation des pages
   const homePage = new HomePage(page);
   const Login =  new LoginPage(page)
