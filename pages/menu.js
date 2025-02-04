@@ -101,6 +101,13 @@ exports.MenuPage =  class MenuPage {
         await this.entButton.click();
     }
 
+    async gotoVehiclePage()
+    {
+        await this.menuButton.click()
+        await this.confButton.click();
+        await this.vehicleButton.click();
+    }
+
     async gotoFilPage()
     {
         await this.menuButton.click()
