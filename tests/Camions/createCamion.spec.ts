@@ -39,7 +39,7 @@ test('Recherche camions', async ({ page }) => {
     const Menu = new MenuPage(page);
     const Camion = new CamionsPage(page);
     await Login.gotoLoginPage();
-    await Login.login('ragheb.postman','poxerbarubary12');
+    await Login.login('marwa.benkhalifa-ext@altaroad.com','Marmarou1234');
     await Menu.gotoTruckPage();
     await Camion.page.getByText('Tous les camions (5)').click();
     await page.waitForTimeout(3000);
@@ -67,7 +67,7 @@ test('Recherche camions', async ({ page }) => {
       const Camion = new CamionsPage(page);
       const creerCamionModale = new CreerCamionModalePage(page);
       await Login.gotoLoginPage();
-      await Login.login('ragheb.postman','poxerbarubary12');
+      await Login.login('marwa.benkhalifa-ext@altaroad.com','Marmarou1234');
       await Menu.gotoTruckPage();
       await Camion.page.getByText('Tous les camions (5)').click();
       await Camion.page.getByText('AI192LP').click();

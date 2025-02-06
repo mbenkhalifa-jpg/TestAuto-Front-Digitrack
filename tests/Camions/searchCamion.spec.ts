@@ -16,7 +16,7 @@ test('Test de recherche de camion standard', async ({ page }) => {
   const Menu = new MenuPage(page);
   const Camion = new CamionsPage(page);
   await Login.gotoLoginPage();
-  await Login.login('ragheb.postman','poxerbarubary12');
+  await Login.login('marwa.benkhalifa-ext@altaroad.com','Marmarou1234');
   await Menu.gotoVehiclePage();
   await Camion.writeSearch("AI192LP");
   await Camion.clickTruckTab();
@@ -37,7 +37,7 @@ test('Test : input recherche qui reste avec le changement de onglets ', async ({
   const Menu = new MenuPage(page);
   const Camion = new CamionsPage(page);
   await Login.gotoLoginPage();
-  await Login.login('ragheb.postman','poxerbarubary12');
+  await Login.login('marwa.benkhalifa-ext@altaroad.com','Marmarou1234');
   await Menu.gotoVehiclePage();
   await Camion.writeSearch("AI192LP");
   await Camion.clickTruckTab();
